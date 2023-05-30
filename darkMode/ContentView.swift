@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    @State private var showingSettingsView: Bool = false
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Home")
+            Image("home.fill")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 100)
+                .padding()
         }
-        .padding()
     }
 }
 

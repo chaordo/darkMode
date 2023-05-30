@@ -9,9 +9,22 @@ import SwiftUI
 
 @main
 struct darkModeApp: App {
+    
+    @AppStorage("isDarkMode") var isDarkMode: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                ContentView()
+                    .preferredColorScheme(isDarkMode ? .dark : .light)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            NavigationLink(destination: SettingsView()) {
+                                Text("settings")
+                            }
+                        }
+                    }
+            }
+        }
         }
     }
-}
